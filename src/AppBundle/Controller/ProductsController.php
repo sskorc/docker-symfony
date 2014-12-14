@@ -19,6 +19,20 @@ class ProductsController extends FOSRestController
         return $this->handleView($view);
     }
 
+    public function getProductAction($id)
+    {
+        $dm = $this->get('doctrine_mongodb')->getManager();
+        $product = $dm->getRepository('AppBundle:Product')->find($id);
+
+        if (empty($product)) {
+            throw new HttpException(404, 'Product not found.');
+        }
+
+        $view = $this->view($product, 200);
+
+        return $this->handleView($view);
+    }
+
     public function postProductsAction(Request $request)
     {
         $name = $request->get('name');
@@ -27,11 +41,10 @@ class ProductsController extends FOSRestController
             throw new HttpException(400, 'Missing required parameters');
         }
 
-        $dm = $this->get('doctrine_mongodb')->getManager();
-
         $product = new Product();
         $product->setName($name);
 
+        $dm = $this->get('doctrine_mongodb')->getManager();
         $dm->persist($product);
         $dm->flush();
 

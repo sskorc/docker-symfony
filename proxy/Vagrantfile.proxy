@@ -1,0 +1,21 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.provision "docker"
+  config.vm.provision "shell", inline:
+    "ps aux | grep 'sshd:' | awk '{print $2}' | xargs kill"
+
+  config.vm.network "private_network", ip: "192.168.33.20"
+
+  config.vm.network "forwarded_port", guest: 80, host: 80
+  config.vm.network "forwarded_port", guest: 27017, host: 27017
+
+  config.vm.synced_folder "./../", "/vagrant", type: "nfs"
+
+  config.vm.provider "virtualbox" do |v|
+    v.name = "docker-symfony"
+    v.memory = 2048
+    v.cpus = 2
+  end
+end

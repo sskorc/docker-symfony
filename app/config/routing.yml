@@ -1,3 +1,4 @@
-app:
-    resource: @AppBundle/Controller/
-    type:     annotation
+api_articles:
+    type:     rest
+    resource: AppBundle\Controller\ProductsController
+    prefix:   /api

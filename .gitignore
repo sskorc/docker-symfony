@@ -10,5 +10,3 @@
 /vendor/
 /bin/
 /composer.phar
-/.vagrant
-/proxy/.vagrant

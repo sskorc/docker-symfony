@@ -1,0 +1,16 @@
+web:
+  build: .
+  links:
+    - db
+  environment:
+    APACHE_LOG_DIR: /var/log/apache2
+  volumes:
+    - .:/var/www/html/docker-symfony
+  ports:
+    - "80:80"
+db:
+  image: mongo:latest
+  volumes:
+    - /mnt/sda1/var/lib/mongo-data:/data/db
+  ports:
+    - "27017:27017"

@@ -1,10 +1,12 @@
 FROM php:5.6-apache
 
 RUN apt-get update \
-    && apt-get install -y git libssl-dev zlib1g-dev \
+    && apt-get install -y git libssl-dev zlib1g-dev libicu-dev g++ \
     && pecl install mongo \
     && echo extension=mongo.so > /usr/local/etc/php/conf.d/mongo.ini \
-    && docker-php-ext-install zip
+    && pecl install apcu-beta \
+    && echo extension=apcu.so > /usr/local/etc/php/conf.d/apcu.ini \
+    && docker-php-ext-install zip mbstring intl
 
 # workaround until https://github.com/boot2docker/boot2docker/issues/581 is fixed
 RUN echo 'IncludeOptional sites-enabled/*.conf' >> /etc/apache2/apache2.conf

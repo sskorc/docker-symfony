@@ -10,5 +10,7 @@ web:
     - "80:80"
 db:
   image: mongo:latest
+  volumes:
+    - /mnt/sda1/var/lib/mongo-data:/data/db
   ports:
     - "27017:27017"

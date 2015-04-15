@@ -5,5 +5,5 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    mongo_database_server: mongodb://localhost:27017
+    mongo_database_server: mongodb://db:27017
     mongo_database_name: docker-symfony

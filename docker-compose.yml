@@ -1,11 +1,17 @@
-web:
+php:
   build: .
   links:
     - db
-  environment:
-    APACHE_LOG_DIR: /var/log/apache2
   volumes:
     - .:/var/www/docker-symfony
+nginx:
+  image: nginx:1.9.4
+  links:
+    - php
+  volumes_from:
+    - php
+  volumes:
+    - ./docker/vhost.conf:/etc/nginx/conf.d/default.conf
   ports:
     - "80:80"
 db:

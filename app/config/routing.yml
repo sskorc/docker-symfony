@@ -1,4 +1,8 @@
-api_articles:
+app:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+api_tasks:
     type:     rest
-    resource: AppBundle\Controller\ProductsController
+    resource: AppBundle\Controller\TasksController
     prefix:   /api

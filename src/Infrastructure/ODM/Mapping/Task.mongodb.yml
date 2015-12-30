@@ -1,0 +1,10 @@
+Domain\Entity\Task:
+  fields:
+    id:
+      type: id
+      id: true
+      strategy: AUTO
+    createdAt:
+      type: date
+    name:
+      type: string

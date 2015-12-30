@@ -1,0 +1,4 @@
+services:
+  repository.task:
+      class: Infrastructure\ODM\ODMTaskRepository
+      arguments: [@doctrine.odm.mongodb.document_manager]

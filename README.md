@@ -80,20 +80,20 @@ TBA
 
 ### Test the application
 
-- You can test the application by sending the POST request with the `name` parameter to `http://docker-symfony.dev/api/products`.
+- You can test the application by sending the POST request with the `name` parameter to `http://docker-symfony.dev/api/tasks`.
 Example:
     ```
-    curl -w "\n" -H "Content-Type: application/json" -X POST -d '{"name":"Hello!"}' http://docker-symfony.dev/api/products
+    curl -w "\n" -H "Content-Type: application/json" -X POST -d '{"name":"Hello!"}' http://docker-symfony.dev/api/tasks
     ```
 
-- You can get all products by sending the GET request to `http://docker-symfony.dev/api/products`. Example:
+- You can get all products by sending the GET request to `http://docker-symfony.dev/api/tasks`. Example:
     ```
-    curl -w "\n" -X GET http://docker-symfony.dev/api/products
+    curl -w "\n" -X GET http://docker-symfony.dev/api/tasks
     ```
 
-- You can get a single product by sending the GET request to `http://docker-symfony.dev/api/products/` followed by the
-product's id. Example:
+- You can get a single task by sending the GET request to `http://docker-symfony.dev/api/tasks/` followed by the
+task's id. Example:
     ```
-    curl -w "\n" -X GET http://docker-symfony.dev/api/products/548dab4ed021251d008b4567
+    curl -w "\n" -X GET http://docker-symfony.dev/api/tasks/548dab4ed021251d008b4567
     ```
 

@@ -5,7 +5,7 @@ php:
   volumes:
     - .:/var/www/docker-symfony
 nginx:
-  image: nginx:1.9.4
+  image: nginx:1.9.9
   links:
     - php
   volumes_from:
@@ -15,7 +15,7 @@ nginx:
   ports:
     - "80:80"
 db:
-  image: mongo:latest
+  image: mongo:3.2.0
   volumes:
     - /mnt/sda1/var/lib/mongo-data:/data/db
   ports:

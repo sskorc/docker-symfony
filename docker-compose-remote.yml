@@ -1,9 +1,9 @@
 php:
-  build: .
+  image: sskorc/docker-symfony-dist:latest
   links:
     - db
   volumes:
-    - .:/var/www/docker-symfony
+    - /var/www/docker-symfony
 nginx:
   image: nginx:1.9.10
   links:

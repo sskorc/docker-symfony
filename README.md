@@ -1,10 +1,12 @@
 # docker-symfony
 
-This is a simple REST API project written in [Symfony](http://symfony.com/), running on multiple
-[Docker](http://www.docker.com/) containers. [Docker Compose](http://docs.docker.com/compose/)
+This is a simple To-do list application with GUI and REST API written in [Symfony](http://symfony.com/), running on
+multiple [Docker](http://www.docker.com/) containers. [Docker Compose](http://docs.docker.com/compose/)
 is used for orchestration.
 
 ## Previous versions
+- If you are looking for products example rather than to-do list,
+check the [`products` tag](https://github.com/sskorc/docker-symfony/tree/products).
 - If you are looking for a multiple containers example with Apache,
 check the [`apache` tag](https://github.com/sskorc/docker-symfony/tree/apache).
 - If you are looking for a single container example with supervisor and Vagrant,
@@ -28,7 +30,7 @@ Containers are managed by Docker Compose. The configuration is in the `docker-co
 
 Basically, you need to have [Docker Compose installed](http://docs.docker.com/compose/#installation-and-set-up).
 
-If you are using Mac OS X or Windows as your host OS, I recommend using [Docker Machine](https://docs.docker.com/machine/)
+If you use Mac OS X or Windows as your host OS, I recommend using [Docker Machine](https://docs.docker.com/machine/)
 as the proxy VM to run Docker.
 
 ## How to use it?
@@ -42,7 +44,7 @@ docker-compose up -d
 
 This command will build the `php` Docker image and run its container together with `nginx` and `db` containers.
 
-### Install dependencies
+### Prepare the environment
 
 1. Log in to the `php` container by running the following command:
     ```
@@ -52,6 +54,11 @@ This command will build the `php` Docker image and run its container together wi
 2. Install dependencies by running the following command:
     ```
     cd /var/www/html/docker-symfony && composer install -n
+    ```
+
+3. Change `/tmp` dir permissions:
+    ```
+    chown -R www-data:www-data /tmp
     ```
 
 ### Update your hosts
@@ -80,7 +87,13 @@ TBA
 
 ### Test the application
 
-- You can test the application by sending the POST request with the `name` parameter to `http://docker-symfony.dev/api/tasks`.
+#### Web
+
+You can test the application by following [http://docker-symfony.dev/]() URL in your browser.
+
+#### REST API
+
+- You can test the REST API by sending the POST request with the `name` parameter to `http://docker-symfony.dev/api/tasks`.
 Example:
     ```
     curl -w "\n" -H "Content-Type: application/json" -X POST -d '{"name":"Hello!"}' http://docker-symfony.dev/api/tasks

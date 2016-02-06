@@ -13,8 +13,8 @@ script:
     - docker build -f Dockerfile.remote -t sskorc/docker-symfony-dist .
     - docker tag sskorc/docker-symfony-dist:latest sskorc/docker-symfony-dist:$TRAVIS_BUILD_NUMBER
     - docker-compose --file=docker-compose-remote.yml up -d
-    - docker exec -it dockersymfony_php_1 bash -c bin/phing test
-    - docker exec -it dockersymfony_php_1 bash -c bin/phing quality
+    - docker exec -it dockersymfony_php_1 bash -c "bin/phing test"
+    - docker exec -it dockersymfony_php_1 bash -c "bin/phing quality"
 
 deploy:
   provider: script

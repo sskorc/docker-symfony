@@ -20,7 +20,12 @@
         "jms/serializer-bundle": "~1.1"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "~2.3",
+        "phpspec/phpspec": "~2.0",
+        "squizlabs/php_codesniffer": "1.*",
+        "phing/phing": "2.*",
+        "phpmd/phpmd": "dev-master",
+        "sebastian/phpcpd": "*"
     },
     "scripts": {
         "post-root-package-install": [

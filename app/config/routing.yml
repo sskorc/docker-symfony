@@ -1,8 +1,7 @@
-app:
-    resource: "@AppBundle/Resources/config/routing.yml"
-    prefix:   /
-
-api_tasks:
-    type:     rest
-    resource: AppBundle\Controller\TasksController
+api:
+    resource: "@AppBundle/Resources/config/routing_api.yml"
     prefix:   /api
+
+web:
+    resource: "@AppBundle/Resources/config/routing_web.yml"
+    prefix:   /

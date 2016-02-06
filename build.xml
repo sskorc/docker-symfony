@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Advertising2" default="run">
+
+    <target name="clean" description="Clean up and create logs directory">
+        <delete dir="build/logs"/>
+        <mkdir dir="build/logs"/>
+    </target>
+
+    <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer">
+        <exec executable="bin/phpcs" passthru="true" checkreturn="true">
+            <arg line="--report=junit
+                --report-file=build/logs/checkstyle.xml
+                --standard=PSR1,PSR2
+                --extensions=php
+                src"/>
+        </exec>
+    </target>
+
+    <target name="phpmd" description="Generate pmd.xml using PHPMD">
+        <exec executable="bin/phpmd" passthru="true">
+            <arg line="src
+                xml
+                cleancode,codesize,controversial,design,naming,unusedcode
+                --reportfile build/logs/pmd.xml
+                --suffixes php"/>
+        </exec>
+    </target>
+
+    <target name="phpcpd" description="Generate pmd-cpd.xml using PHPCPD">
+        <exec executable="bin/phpcpd" passthru="true">
+            <arg line="--log-pmd build/logs/pmd-cpd.xml
+                src"/>
+        </exec>
+    </target>
+
+    <target name="phpspec">
+        <exec executable="bin/phpspec" passthru="true" checkreturn="true">
+            <arg line="run
+                --format=pretty"/>
+        </exec>
+    </target>
+
+    <target name="test" depends="phpspec"/>
+
+    <target name="quality" depends="clean,phpmd,phpcpd,phpcs"/>
+
+    <target name="run" depends="test,quality"/>
+
+</project>

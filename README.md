@@ -90,10 +90,3 @@ Example:
     ```
     curl -w "\n" -X GET http://docker-symfony.dev/api/tasks
     ```
-
-- You can get a single task by sending the GET request to `http://docker-symfony.dev/api/tasks/` followed by the
-task's id. Example:
-    ```
-    curl -w "\n" -X GET http://docker-symfony.dev/api/tasks/548dab4ed021251d008b4567
-    ```
-

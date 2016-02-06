@@ -1,0 +1,9 @@
+date.timezone = Europe/Warsaw
+short_open_tag = off
+max_execution_time = 300
+memory_limit = 512M
+
+xdebug.default_enable = off
+xdebug.remote_autostart = off
+xdebug.remote_enable = off
+xdebug.profiler_enable = off

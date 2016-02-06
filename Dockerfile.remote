@@ -1,6 +1,6 @@
 FROM sskorc/symfony2-mongo:latest
 
-ADD docker/php.ini /usr/local/etc/php/php.ini
+ADD docker/php.ini.remote /usr/local/etc/php/php.ini
 
 ADD . /var/www/docker-symfony
 

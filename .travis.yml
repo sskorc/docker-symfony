@@ -1,3 +1,5 @@
+language: ruby
+
 services:
     - docker
 
@@ -10,12 +12,12 @@ before_script:
 script:
     - docker build -f Dockerfile.remote -t sskorc/docker-symfony-dist .
     - docker tag sskorc/docker-symfony-dist:latest sskorc/docker-symfony-dist:$TRAVIS_BUILD_NUMBER
-    - docker-compose up -d -f docker-compose-remote.yml
+    - docker-compose --file=docker-compose-remote.yml up -d
     - docker exec -it dockersymfony_php_1 bash -c bin/phing test
     - docker exec -it dockersymfony_php_1 bash -c bin/phing quality
 
 deploy:
   provider: script
-    script: deploy.sh
-    on:
-      branch: master
+  script: deploy.sh
+  on:
+    branch: master

@@ -1,0 +1,14 @@
+web_homepage:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: web_tasks_list
+        permanent: true
+
+web_tasks_list:
+    path: /tasks
+    defaults: { _controller: AppBundle:Web/Task/List:execute }
+
+web_tasks_add:
+    path: /tasks/add
+    defaults: { _controller: AppBundle:Web/Task/Add:execute }

@@ -1,4 +1,7 @@
-api_articles:
-    type:     rest
-    resource: AppBundle\Controller\ProductsController
+api:
+    resource: "@AppBundle/Resources/config/routing_api.yml"
     prefix:   /api
+
+web:
+    resource: "@AppBundle/Resources/config/routing_web.yml"
+    prefix:   /

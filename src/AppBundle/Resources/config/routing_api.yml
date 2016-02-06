@@ -1,0 +1,17 @@
+api_tasks_list:
+    path: /tasks.{_format}
+    methods: [GET]
+    requirements:
+        _format: json|xml
+    defaults:
+        _format: json
+        _controller: AppBundle:REST/Task/List:execute
+
+api_tasks_add:
+    path: /tasks.{_format}
+    methods: [POST]
+    requirements:
+        _format: json|xml
+    defaults:
+        _format: json
+        _controller: AppBundle:REST/Task/Add:execute

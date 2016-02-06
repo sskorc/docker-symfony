@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block base_content %}
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="alert alert-success" role="alert">{{ flashMessage }}</div>
+    {% endfor %}
+    <div class="text-center">
+        <a href="{{ path('web_tasks_add') }}" class="btn btn-primary btn-lg" role="button">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add task
+        </a>
+    </div>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Created at</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for task in tasks %}
+        <tr>
+            <td class="col-md-1">{{ loop.index }}</td>
+            <td class="col-md-3">{{ task.createdAt|date("d.m.Y H:i:s") }}</td>
+            <td class="col-md-8">{{ task.name }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

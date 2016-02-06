@@ -1,0 +1,10 @@
+services:
+  repository.task:
+      class: Infrastructure\ODM\ODMTaskRepository
+      arguments: [@doctrine.odm.mongodb.document_manager]
+  use_case.add_task:
+      class: Domain\UseCase\AddTask
+      arguments: [@repository.task]
+  use_case.list_tasks:
+      class: Domain\UseCase\ListTasks
+      arguments: [@repository.task]

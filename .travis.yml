@@ -1,0 +1,23 @@
+language: ruby
+
+services:
+    - docker
+
+before_install:
+    - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+
+before_script:
+    - rm web/app_dev.php web/config.php web/info.php
+
+script:
+    - docker build -f Dockerfile.remote -t sskorc/docker-symfony-dist .
+    - docker tag sskorc/docker-symfony-dist:latest sskorc/docker-symfony-dist:$TRAVIS_BUILD_NUMBER
+    - docker-compose --file=docker-compose-remote.yml up -d
+    - docker exec -it dockersymfony_php_1 bash -c "bin/phing test"
+    - docker exec -it dockersymfony_php_1 bash -c "bin/phing quality"
+
+deploy:
+  provider: script
+  script: deploy.sh
+  on:
+    branch: master

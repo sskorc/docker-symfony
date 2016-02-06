@@ -39,6 +39,13 @@ doctrine_mongodb:
     document_managers:
         default:
             auto_mapping: true
+            mappings:
+                app:
+                    type: yml
+                    dir: %kernel.root_dir%/../src/Infrastructure/ODM/Mapping/
+                    prefix: Domain\Entity
+                    is_bundle: false
+
 
 fos_rest:
     routing_loader:

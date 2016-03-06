@@ -4,6 +4,9 @@ php:
     - db
   volumes:
     - .:/var/www/docker-symfony
+  environment:
+    XDEBUG_CONFIG: remote_host=192.168.99.1
+    PHP_IDE_CONFIG: serverName=docker-symfony
 nginx:
   image: nginx:1.9.10
   links:

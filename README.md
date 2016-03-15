@@ -103,3 +103,8 @@ Example:
     ```
     curl -w "\n" -X GET http://docker-symfony.dev/api/tasks
     ```
+
+#### Debugging
+
+This application is ready to be debugged by [Xdebug](https://xdebug.org/). If you want to configure your host and
+PHPStorm to debug this app, please follow [the instruction](docs/xdebug.md).

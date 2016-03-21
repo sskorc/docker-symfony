@@ -53,7 +53,7 @@ This command will build the `php` Docker image and run its container together wi
 
 2. Install dependencies by running the following command:
     ```
-    cd /var/www/html/docker-symfony && composer install -n
+    cd /var/www/docker-symfony && composer install -n
     ```
 
 3. Change `/tmp` dir permissions:

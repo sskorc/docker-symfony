@@ -12,7 +12,7 @@ configuration of the container to run Xdebug. It consists of:
 3. Further Xdebug configuration in the `docker-compose.yml` file (two environment variables for `php` container).
 
 ## Local configuration
-Disclaimer: this instruction was tasted on Mac OS X with Docker Machine, VirtualBox and PHPStorm 10.
+Disclaimer: this instruction was tested on Mac OS X with Docker Machine, VirtualBox and PHPStorm 10.
 
 ### 1. Set the IP address of your host
 

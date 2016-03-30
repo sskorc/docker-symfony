@@ -1,5 +1,7 @@
 # docker-symfony
 
+[![Build Status](https://travis-ci.org/sskorc/docker-symfony.svg?branch=master)](https://travis-ci.org/sskorc/docker-symfony)
+
 This is a simple To-do list application with GUI and REST API written in [Symfony](http://symfony.com/), running on
 multiple [Docker](http://www.docker.com/) containers. [Docker Compose](http://docs.docker.com/compose/)
 is used for orchestration.
@@ -108,3 +110,8 @@ Example:
 
 This application is ready to be debugged by [Xdebug](https://xdebug.org/). If you want to configure your host and
 PHPStorm to debug this app, please follow [the instruction](docs/xdebug.md).
+
+## Continuous Delivery
+
+The application is being build on [Travis CI](https://travis-ci.org/sskorc/docker-symfony) and it's being deployed to
+[Docker Cloud](https://cloud.docker.com/).
